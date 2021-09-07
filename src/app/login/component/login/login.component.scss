@@ -1,0 +1,42 @@
+@media only screen and (max-width: 400px) {
+    .mobile-hide{ display: none !important; }
+    }
+    @media only screen and (max-width: 400px) {
+    .mobile{ display: inline !important; }
+    }
+    @media only screen and (min-width: 500px) {
+    .desktop-hide{ display: none !important; }
+    }
+body{
+    width: 100%;
+    display: flex;
+  
+    align-items: center;
+    text-align: center;
+    animation: changeBackgroundColor 7s infinite;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+} 
+
+.text{
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  color: #0305089e;
+}
+.text1{
+  text-align: right;  
+  font-family: 'IBM Plex Sans KR', sans-serif;
+    color: #09192f9e;
+}
+@keyframes changeBackgroundColor {
+    0% {
+      background-color: #cfb3c5c2;
+    }
+    50% {
+      background-color: #d5acd6;
+    }
+    100% {
+      background-color: #ce8bc0;
+    }
+  }

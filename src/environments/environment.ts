@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://sheup-api.belaplusoficial.com.br/v1/',
+  baseApiUrl: 'https://sheup-api.belaplusoficial.com.br/v1/',
 };
 
 /*
