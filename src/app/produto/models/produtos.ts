@@ -4,6 +4,8 @@
      public brand: string,
      public sku: string,
      public productId: number,
+     public id: number,
+
      public categoryId: number,
      public condition:	string,
      public description:	string,

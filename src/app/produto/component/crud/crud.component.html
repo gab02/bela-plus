@@ -27,7 +27,7 @@
 <br>
 <div class="row">
 <div class="col-md-4"><input style="width: 100%;" formControlName="price" pInputText type="number"  placeholder="Preço"/></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="sku" pInputText type="number"  placeholder="sku"/></div>
+<div class="col-md-4"><input style="width: 100%;" formControlName="sku" pInputText type="text"  placeholder="sku"/></div>
 <div class="col-md-4"><input style="width: 100%;" formControlName="weight" pInputText type="number"  placeholder="Peso"/></div>
 </div>
 <br>
@@ -92,7 +92,7 @@
 <td>
   <p-cellEditor>
     <ng-template pTemplate="input">
-        <input pInputText type="number" formControlName="id" [(ngModel)]="product.id">
+        <input pInputText type="number" readonly formControlName="id" [(ngModel)]="product.id">
     </ng-template>
     <ng-template pTemplate="output">
       <td>{{product.id}}</td>
@@ -100,6 +100,7 @@
   </p-cellEditor>
 </td>
 <td>
+  
         <p-cellEditor>
           <ng-template pTemplate="input">
               <input pInputText type="text" formControlName="name" [(ngModel)]="product.name">
@@ -152,7 +153,7 @@
                       <th >fiscalSource</th>   
                       <th >packageHeight</th>
                       <th > packageLength</th>
-                        <th > packageWidth</th>
+                      <th > packageWidth</th>
                       <th >id</th>
                       <th ></th>
 
@@ -177,7 +178,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="weight" [(ngModel)]="product.weight">
+                                <input pInputText type="number"  formControlName="weight" [(ngModel)]="product.weight">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.weight}}
@@ -189,7 +190,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="fiscalNcm" [(ngModel)]="product.fiscalNcm">
+                                <input pInputText type="number"  formControlName="fiscalNcm" [(ngModel)]="product.fiscalNcm">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.fiscalNcm}}
@@ -201,7 +202,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="fiscalSource" [(ngModel)]="product.fiscalSource">
+                                <input pInputText type="number"  formControlName="fiscalSource" [(ngModel)]="product.fiscalSource">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.fiscalSource}}
@@ -213,7 +214,7 @@
                          <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="packageHeight" [(ngModel)]="product.packageHeight">
+                                <input pInputText type="number"  formControlName="packageHeight" [(ngModel)]="product.packageHeight">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.packageHeight}}
@@ -225,7 +226,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="packageLength" [(ngModel)]="product.packageLength">
+                                <input pInputText type="number"  formControlName="packageLength" [(ngModel)]="product.packageLength">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.packageLength}}
@@ -237,7 +238,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="packageWidth" [(ngModel)]="product.packageWidth">
+                                <input pInputText type="number" formControlName="packageWidth" [(ngModel)]="product.packageWidth">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.packageWidth}}
@@ -250,7 +251,7 @@
                         <td>
                           <p-cellEditor>
                             <ng-template pTemplate="input">
-                                <input pInputText type="text" formControlName="id" [(ngModel)]="product.id">
+                                <input pInputText type="text" readonly formControlName="id" [(ngModel)]="product.id">
                             </ng-template>
                             <ng-template pTemplate="output">
                           {{product.id}}

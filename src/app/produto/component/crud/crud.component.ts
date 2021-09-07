@@ -64,7 +64,12 @@ onRowEditSave(product: Produto) {
       data => {
         this.formPut.reset();
 this.carregarRegistros();
-
+Swal.fire({
+  icon: 'success',
+  title: 'Sua atualização foi salva!',
+  showConfirmButton: false,
+  timer: 1500
+})
          console.log(data)
       },
       err => {
@@ -92,7 +97,7 @@ onRowEditCancel(product: Produto) {
       categoryId: [1, []],
       brand: ['', []],
       description: ['', []],
-      name: [, []],
+      name: ['', []],
       model: ['', []],
       price: ['', []],
       sku: ['', []],
@@ -115,7 +120,7 @@ onRowEditCancel(product: Produto) {
   gerarFormPut() {
     this.formPut = this.fb.group({ 
       description: ['', []],
-      name: [, []],
+      name: ['', []],
       model: ['', []],
       price: ['', []],
       sku: ['', []],
@@ -145,6 +150,13 @@ Post(){
 
   this.service.salvar(entity).subscribe(
       data => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Sua inserção foi salva!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.carregarRegistros();
         this.form.reset();
          console.log(data)
       },
