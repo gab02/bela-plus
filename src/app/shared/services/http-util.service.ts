@@ -14,6 +14,7 @@ export class HttpUtilService {
     if (localStorage['token']) {
       httpHeaders = httpHeaders.set(
         'Authorization', localStorage['token']
+
       );
     }
 
@@ -21,13 +22,7 @@ export class HttpUtilService {
     return { headers : httpHeaders };
   }
 
-  obterIdUsuario(): string {
-      if (!localStorage['id']){
-        return '';
-      }
-      const dadosUsuario = localStorage['id']
-    return localStorage['id']; 
-  }
+ 
 
   obterDadosUsuario() {
     if (!localStorage['token']){

@@ -8,35 +8,66 @@
     .desktop-hide{ display: none !important; }
     }
 body{
-    width: 100%;
-    display: flex;
-  
-    align-items: center;
-    text-align: center;
-    animation: changeBackgroundColor 7s infinite;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-} 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+     background-image: url(../../../../assets/background.png);
 
+} 
+.description{
+  font-family: 'EB Garamond', serif;
+    color: #0305089e;
+  opacity: 1;
+}
 .text{
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: 'EB Garamond', serif;
   color: #0305089e;
 }
 .text1{
   text-align: right;  
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: 'EB Garamond', serif;
     color: #09192f9e;
 }
-@keyframes changeBackgroundColor {
-    0% {
-      background-color: #cfb3c5c2;
-    }
-    50% {
-      background-color: #d5acd6;
-    }
-    100% {
-      background-color: #ce8bc0;
-    }
-  }
+// @keyframes changeBackgroundColor {
+//     0% {
+//       background-color: #cfb3c5c2;
+//     }
+//     50% {
+//       background-color: #d5acd6;
+//     }
+//     100% {
+//       background-color: #ce8bc0;
+//     }
+//   }
+span{
+  font-family: 'EB Garamond', serif;
+
+  border-color: rgba(157, 154, 154, 0.904);
+}
+span:enabled:focus{
+  border-color: rgb(245, 212, 212)  !important;
+  box-shadow: 0 0 0 0.2rem rgb(245, 212, 212) !important;
+}
+
+span:hover{
+  border-color: rgb(245, 212, 212) !important;
+
+  box-shadow: 0 0 0 0.09rem rgb(245, 212, 212) !important;
+}
+input{
+  font-family: 'EB Garamond', serif;
+
+  border-color: rgba(157, 154, 154, 0.904);
+}
+ input:enabled:focus{
+  border-color: rgb(245, 212, 212)  !important;
+  box-shadow: 0 0 0 0.2rem rgb(245, 212, 212) !important;
+}
+
+input:hover{
+  border-color: rgb(245, 212, 212) !important;
+
+  box-shadow: 0 0 0 0.09rem rgb(245, 212, 212) !important;
+}
