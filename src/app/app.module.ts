@@ -13,6 +13,11 @@ import {DockModule} from 'primeng/dock';
 import { NgwWowModule } from 'ngx-wow';
 import {MenubarModule} from 'primeng/menubar';
 import { ProdutoModule, ProdutoRoutingModule } from './produto';
+import {MenuModule} from 'primeng/menu';
+import { ListComponent } from './listProduto/component/list/list.component';
+import { ListProdutoRoutingModule } from './listProduto/list-produto-routing.module';
+import { ListProdutoModule } from './listProduto';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,10 @@ ProdutoRoutingModule,
     MenubarModule,
   DockModule,
   NgwWowModule,
+  MenuModule,
+  ListProdutoModule,
+  ListProdutoRoutingModule,
+  NgxPaginationModule
  
   ],
   providers: [],

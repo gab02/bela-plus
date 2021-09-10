@@ -12,6 +12,7 @@ import { CardModule } from 'primeng/card';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { InputText, InputTextModule } from 'primeng/inputtext';
+import { NgwWowModule } from 'ngx-wow';
 
 // import {DialogModule} from 'primeng/dialog';
 
@@ -28,7 +29,8 @@ import { InputText, InputTextModule } from 'primeng/inputtext';
     CardModule,
     AutoCompleteModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    NgwWowModule
 
   ],
   declarations: [

@@ -21,6 +21,7 @@
     "@angular/router": "~12.2.0",
     "animate.css": "^4.1.1",
     "chart.js": "^3.5.1",
+    "ngx-pagination": "^5.1.1",
     "ngx-wow": "^2.0.1",
     "primeicons": "^4.1.0",
     "primeng": "^12.1.0",

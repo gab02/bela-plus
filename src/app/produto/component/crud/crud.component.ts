@@ -1,5 +1,6 @@
 import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgwWowService } from 'ngx-wow';
 import { AppComponent } from 'src/app/app.component';
 import Swal from 'sweetalert2';
 import { Produto } from '../../models/produtos';
@@ -28,16 +29,17 @@ export class CrudComponent implements OnInit {
 value;
   constructor(public app: AppComponent,
     public service: ProdutoService,
-    public fb: FormBuilder
-    ) {     this.app.valorLogin = true;
+    public fb: FormBuilder, private wowService: NgwWowService,
+    ){      this.wowService.init();   
   }
 
   ngOnInit(): void {
-    this.app.valorLogin = true;
-    console.log(localStorage['token']);
+    this.app.valorList = false;
+    this.app.valorLogin = false;
+    this.app.valorInserir = true;    console.log(localStorage['token']);
     this.gerarFormGet();
     this.gerarFormCrud();
-    this.carregarRegistros();
+    this.wowService.init();  
   }
   onRowEditInit(product: Produto) {
     // this.clonedProducts[product.id] = {...product};
@@ -63,7 +65,6 @@ onRowEditSave(product: Produto) {
   this.service.put(product.productId, product).subscribe(
       data => {
         this.formPut.reset();
-this.carregarRegistros();
 Swal.fire({
   icon: 'success',
   title: 'Sua atualização foi salva!',
@@ -156,7 +157,8 @@ Post(){
           showConfirmButton: false,
           timer: 1500
         })
-        this.carregarRegistros();
+        this.app.listar();
+        // this.carregarRegistros();
         this.form.reset();
          console.log(data)
       },
@@ -173,24 +175,7 @@ Post(){
         });
       });
   }
-  async carregarRegistros() {
-    this.gerarFormPut();
 
-localStorage['search'] = this.formGet.get('search')?.value 
-console.log(localStorage['search'])
-    this.service.carregarRegistro()
-      .subscribe(
-        data => {
-          console.log(data)
-          this.dataSource = data.rows;
-          
-        },
-        err => {
-          const msg: string = "Erro obtendo itens.";
-  
-        }
-      )
-  }
 
 
 }

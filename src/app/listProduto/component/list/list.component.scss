@@ -1,0 +1,79 @@
+table {
+    width: 100%;
+   
+
+}
+
+tr{
+    font-size: 12px;
+    font-family: 'EB Garamond', serif;
+}
+td{
+    font-size: 12px;
+    font-family: 'EB Garamond', serif;
+}
+  body{
+    height: auto;
+  }
+
+.styleInput{
+  border-radius: 0.5em;
+}
+
+h2{
+  font-family: 'EB Garamond', serif;
+
+}
+h3{
+  font-family: 'EB Garamond', serif;
+
+}
+input{
+  font-family: 'EB Garamond', serif;
+
+  border-color: rgba(157, 154, 154, 0.904);
+}
+ input:enabled:focus{
+  border-color: rgb(245, 212, 212)  !important;
+  box-shadow: 0 0 0 0.2rem rgb(245, 212, 212) !important;
+}
+
+input:hover{
+  border-color: rgb(245, 212, 212) !important;
+
+  box-shadow: 0 0 0 0.09rem rgb(245, 212, 212) !important;
+}
+
+option{
+    font-family: 'EB Garamond', serif;
+  
+    border-color: rgba(157, 154, 154, 0.904);
+  }
+  option:enabled:focus{
+    border-color: rgb(245, 212, 212)  !important;
+    box-shadow: 0 0 0 0.2rem rgb(245, 212, 212) !important;
+  }
+  
+  option:hover{
+    border-color: rgb(245, 212, 212) !important;
+  
+    box-shadow: 0 0 0 0.09rem rgb(245, 212, 212) !important;
+  }
+
+
+  select{
+    font-family: 'EB Garamond', serif;
+  
+    border-color: rgba(157, 154, 154, 0.904);
+  }
+  select:enabled:focus{
+    border-color: rgb(245, 212, 212)  !important;
+    box-shadow: tan;
+    box-shadow: 0 0 0 0.2rem rgb(245, 212, 212) !important;
+  }
+  
+  select:hover{
+    border-color: rgb(245, 212, 212) !important;
+  box-shadow: tan;
+    box-shadow: 0 0 0 0.09rem rgb(245, 212, 212) !important;
+  }

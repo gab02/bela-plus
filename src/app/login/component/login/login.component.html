@@ -1,89 +1,97 @@
 <body> 
-  <!-- mobile-hide -->
-  
-<div class="container" style="padding: 4em;">
-  <div class="mobile-hide">
 
-    <div class="container" style="padding: 2em;">
-  <div class="row">   
-  <!-- <h2>Logar</h2> -->
+
+    <div  style="padding: 1em;">
+
+      <div class="row">
+
+        <div class="col-md-5">
+          <div class="container">
+          
+          <h2 class=" wow animate__animated animate__backInLeft description"  style="margin-top: 100px;" >Olá, você está prestes a imerger novamente na melhor experiência da sua vida!</h2>
+      </div>
+        </div>
+        <div class="col-md-1">
+</div>
+        <div class="col-md-6">
+          <div class="container" style="width: 100%;">
+          <p-card  [style]="{'border-top':'6px solid rgb(245, 212, 212)'}">
+            <h2 class=" wow animate__animated animate__backInRight text" style="margin-left: -40%; margin-top: -10px;">Bem-vindo de volta.</h2>
+            <br>
+               <div class="container">
+                <br>
+            <form [formGroup]="form">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8"> 
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                  <input type="text" formControlName="username" style="width: 100%;" pInputText placeholder="Username">         
+              </div></div>
+              <div class="col-md-2"></div>
+             </div>
+             <b class="text1" style="margin-left: -46%; margin-top: 2px;">Insira seu email</b>             <br><br>
+             <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8"> 
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">@</span>
+                  <input type="password" formControlName="password" style="width: 100%;" pInputText placeholder="Password">         
+              </div></div>
+              <div class="col-md-2"></div>
+             </div>
+ 
+                <b class="text1" style="margin-left: -46%; margin-top: 2px;">Insira sua senha</b>
+             <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-4"> 
+                  
+            
+            </div>
+              <div class="col-md-4">
+              <p class="description">  Não tem cadastro?
+              </p>
+              </div>
+             </div>
+             <br>
+             <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8"> 
+                
+                
+                  <button pButton pRipple [style]="'width:100%;'" style="background-color: rgb(245, 212, 212); color: #000;   font-family: 'EB Garamond', serif;
+                  " (click)="logar()" type="button" label="LOGIN" class="p-button-raised p-button-warning p-button-text"></button>
+              
+            
+            </div>
+              <div class="col-md-2"></div>
+             </div>
+             </form>  
+            </div>
+              </p-card>
+              </div>
+        </div>
+      </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  <div class="row">   
-  <h2 style="color: #0305089e;">Olá, Bem vindo ao teste técnico funcional!</h2>
-  </div>
-</div>
-</div>
 
-
-
-
-
-
-<br><br>
-<div class="container" style="width: 100%;">
- <p-card>
-<h2 class="text" style="margin-left: -40%; margin-top: -10px;">Bem-vindo ao teste.</h2>
-<br>
-   <div class="container">
-    <br>
-<form [formGroup]="form">
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8"> 
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-      <input type="text" formControlName="username" style="width: 100%;" pInputText placeholder="Username">         
-  </div></div>
-  <div class="col-md-2"></div>
- </div>
- <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-6"> 
-   </div>
- </div>
- <br>
- <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8"> 
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">@</span>
-      <input type="password" formControlName="password" style="width: 100%;" pInputText placeholder="Password">         
-  </div></div>
-  <div class="col-md-2"></div>
- </div>
- <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-6"> 
-   </div>
-  </div>
- <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4"> 
-      
-
-</div>
-  <div class="col-md-4">
-  </div>
- </div>
- <br>
- <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8"> 
-    
-  
-      <button pButton pRipple [style]="'width:100%;'" (click)="logar()" type="button" label="LOGIN" class="p-button-raised p-button-help p-button-text"></button>
-  <br>
-
-</div>
-  <div class="col-md-2"></div>
- </div>
- </form>
-</div>
-  </p-card>
-</div>
-<br><br><br><br>
-<br>
-</div>
 </body>
 
 

@@ -1,0 +1,219 @@
+
+
+<div class="container" style="padding: 2em;">
+    <div class="row">   
+    <h2  class="wow animate__animated animate__jackInTheBox">Produto</h2>
+    </div>
+    <div class="row">   
+        <h3>Veja e altere os produtos disponíveis!!</h3>
+    </div>
+  
+  
+  </div> 
+  <div style="padding: 2em">
+    <br>
+    <p-card  [style]="{'border-top':'6px solid rgb(245, 212, 212)'}">
+    <form [formGroup]="formGet">
+<div class="row">
+        <div class="col-md-6">
+        <div class="p-inputgroup">
+            <span style="height: 45px;"  (click)="carregarRegistros()"
+            class="p-inputgroup-addon">@</span>
+            <input type="text" formControlName="search" style="height: 45px;" pInputText placeholder="Password">         
+        </div>
+    </div>
+    <div class="col-md-6">
+        <pagination-controls style="text-align: center; "
+        previousLabel="Prev"
+        nextLabel="Next"
+        responsive="true"
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+</div>
+</div>
+
+  
+
+</form>
+
+<br>
+<hr style="width: 100%; border-top: 4px solid rgba(240, 154, 154, 0.83);">
+
+<table style="width: 100%;" class="table table-striped table-hover">
+ 
+
+
+
+
+<tr class="table-warning">
+    <th>sku</th>
+    <th>id</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>cond</th>
+    <th >description </th>
+    <th >weight</th>
+    <th >fiscalNcm </th>
+    <th >fiscalSource</th>   
+    <th >packageHeight</th>
+    <th >packageLength</th>
+    <th >packageWidth</th>
+    <th ></th>
+    
+</tr>
+
+<br>
+
+<tr  class="table-warning" *ngFor="
+let tutorial of tutorials | paginate : {
+        itemsPerPage: pageSize,
+        currentPage: page,
+        totalItems: count
+      };
+let i = index
+"
+[class.active]="i == currentIndex">
+<td> {{tutorial.sku}}</td>
+<td> {{tutorial.id}}</td>
+<td> {{tutorial.name | slice:0:15}}</td>
+<td> {{tutorial.quantity}}</td>
+<td> {{tutorial.condition}}</td>
+<td> {{tutorial.description | slice:0:15}}</td>
+<td> {{tutorial.weight}}</td>
+<td> {{tutorial.fiscalNcm}}</td>
+<td> {{tutorial.fiscalSource}}</td>
+<td> {{tutorial.packageHeight}}</td>
+<td> {{tutorial.packageLength}}</td>
+<td> {{tutorial.packageWidth}}</td>
+<td>
+    <button  pButton pRipple type="button"  icon="pi pi-pencil" (click)="carregarEntity(tutorial.id)" class="p-button-rounded p-button-text p-button-warning"></button>
+</td>
+
+</tr>
+<br><br>
+
+
+</table>
+<div class="row">
+    <div class="col-md-10">    
+       <p class="text" style="text-align: right;"> Quantidade de Itens por pagina
+</p>
+</div>
+<div class="col-md-2">
+    <select class="form-select" (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [ngValue]="size">
+        {{ size }}
+      </option>
+    </select>
+    </div>
+
+</div>
+</p-card>
+
+
+
+
+    <!-- <p-card  [style]="{'border-top':'6px solid rgb(245, 212, 212)'}">
+    <form [formGroup]="formGet">
+        <div class="p-mb-3">
+            <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+            <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+            <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+        </div>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+      <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+      </div>
+      </form>
+      <br>
+      
+      <p-table  [paginator]="true" [(first)]="first" [columns]="cols" [totalRecords]="totalRecords" [styleClass]="{'background-color': '#000'}"  #dt1  [rows]="numRows"  styleClass="p-datatable-gridlines"
+      [currentPageReportTemplate]="'{currentPage} of {totalRecords}'" [showCurrentPageReport]=true
+      [globalFilterFields]="['sku','name','price']" 
+      [value]="dataSource" [rowsPerPageOptions]="[25]" >
+      <ng-template pTemplate="header">
+          <tr >
+
+              <th>sku</th>
+              <th>id</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>cond</th>
+              <th >description </th>
+              <th >weight</th>
+              <th >fiscalNcm </th>
+              <th >fiscalSource</th>   
+              <th >packageHeight</th>
+              <th >packageLength</th>
+              <th >packageWidth</th>
+              <th ></th>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body"   let-product  >
+        <tr [formGroup]="formPut">
+          
+
+<td> {{product.sku}}</td>
+<td> {{product.id}}</td>
+<td> {{product.name}}</td>
+<td> {{product.quantity}}</td>
+<td> {{product.condition}}</td>
+<td> {{product.description | slice:0:34}}</td>
+<td> {{product.weight}}</td>
+<td> {{product.fiscalNcm}}</td>
+<td> {{product.fiscalSource}}</td>
+<td> {{product.packageHeight}}</td>
+<td> {{product.packageLength}}</td>
+<td> {{product.packageWidth}}</td>
+<td>
+    <button  pButton pRipple type="button"  icon="pi pi-pencil"  class="p-button-rounded p-button-text p-button-warning"></button>
+</td>
+
+      </ng-template>
+
+      </p-table>
+  </p-card> -->
+  </div>
+  <p-dialog [style]="{width: '90vw'}" header="Alterar Produto" [(visible)]="display">
+    <div style="padding: 2em;">
+        <p-card  [style]="{'border-left':'6px solid rgb(245, 212, 212)'}">
+        <form [formGroup]="form">
+        <div class="row">
+        <div class="col-md-4"><input style="width: 100%;" class="styleInput" formControlName="description" pInputText type="text" placeholder="Descrição" /></div>
+        <div class="col-md-4"><input style="width: 100%;"class="styleInput"  formControlName="name" pInputText type="text" placeholder="Nome" /></div>
+        <div class="col-md-4"><input style="width: 100%;"class="styleInput"  formControlName="model" pInputText type="text" placeholder="Modelo" /></div>  
+        </div>
+        
+        <br>
+        <div class="row">
+        <div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageHeight" pInputText type="number" placeholder="packageHeight" /></div>
+        <div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageLength" pInputText type="number" placeholder="packageLength" /></div>
+        <div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageWidth" pInputText type="number" placeholder="packageWidth" /></div>  
+        </div>
+        <br>
+        <div class="row">
+        <div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="price" pInputText type="number"  placeholder="Preço"/></div>
+        <div class="col-md-4"><input style="width: 100%;"  class="styleInput" formControlName="sku" pInputText type="text"  placeholder="sku"/></div>
+        <div class="col-md-4"><input style="width: 100%;"  class="styleInput" formControlName="weight" pInputText type="number"  placeholder="Peso"/></div>
+        </div>
+        <br>
+        <div class="row">
+        
+        <div class="col-md-5"><input style="width: 100%;" class="styleInput"  formControlName="fiscalNcm" pInputText type="number" placeholder="fiscalNcm" /></div>
+        <div class="col-md-5"><input style="width: 100%;" class="styleInput"  formControlName="fiscalSource" pInputText type="number" placeholder="fiscalSource" /></div>
+        <div class="col-md-2"><input style="width: 100%;" class="styleInput"  formControlName="id" pInputText type="number" placeholder="id" /></div>
+        
+        </div>
+        <br><br>
+        <button pButton (click)="onRowEditSave()" pRipple [style]="'width:100%;'" style="background-color: rgb(245, 212, 212); color: #000;     font-family: 'EB Garamond', serif;"  type="button" label="Alterar Produto" class="p-button-raised p-button-warning p-button-text"></button>
+        
+        </form>
+        </p-card>
+        
+        <br><br>
+        
+        </div>
+    </p-dialog>
+  <br><br>
+  

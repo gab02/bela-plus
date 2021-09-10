@@ -1,281 +1,47 @@
 <div class="container" style="padding: 2em;">
   <div class="row">   
-  <h2>Produto</h2>
+  <h2  class="wow animate__animated animate__jackInTheBox">Inserir Produtos</h2>
   </div>
   <div class="row">   
-  <h3>Nesta página será possivel: Inserir, Visualizar e alterar algum produto</h3>
+  <h3>Bem-vindo novamente! Vamos inserir algum produto?</h3>
   </div>
 
 
-</div>
+</div> 
 <div style="padding: 2em;">
-<p-accordion>
-<p-accordionTab header="Inserir Produto">
+<p-card  [style]="{'border-left':'6px solid rgb(245, 212, 212)'}">
 <form [formGroup]="form">
 <div class="row">
-<div class="col-md-4"><input style="width: 100%;" formControlName="description" pInputText type="text" placeholder="Descrição" /></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="name" pInputText type="text" placeholder="Nome" /></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="model" pInputText type="text" placeholder="Modelo" /></div>  
+<div class="col-md-4"><input style="width: 100%;" class="styleInput" formControlName="description" pInputText type="text" placeholder="Descrição" /></div>
+<div class="col-md-4"><input style="width: 100%;"class="styleInput"  formControlName="name" pInputText type="text" placeholder="Nome" /></div>
+<div class="col-md-4"><input style="width: 100%;"class="styleInput"  formControlName="model" pInputText type="text" placeholder="Modelo" /></div>  
 </div>
 
 <br>
 <div class="row">
-<div class="col-md-4"><input style="width: 100%;" formControlName="packageHeight" pInputText type="number" placeholder="packageHeight" /></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="packageLength" pInputText type="number" placeholder="packageLength" /></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="packageWidth" pInputText type="number" placeholder="packageWidth" /></div>  
+<div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageHeight" pInputText type="number" placeholder="packageHeight" /></div>
+<div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageLength" pInputText type="number" placeholder="packageLength" /></div>
+<div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="packageWidth" pInputText type="number" placeholder="packageWidth" /></div>  
 </div>
 <br>
 <div class="row">
-<div class="col-md-4"><input style="width: 100%;" formControlName="price" pInputText type="number"  placeholder="Preço"/></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="sku" pInputText type="text"  placeholder="sku"/></div>
-<div class="col-md-4"><input style="width: 100%;" formControlName="weight" pInputText type="number"  placeholder="Peso"/></div>
+<div class="col-md-4"><input style="width: 100%;" class="styleInput"  formControlName="price" pInputText type="number"  placeholder="Preço"/></div>
+<div class="col-md-4"><input style="width: 100%;"  class="styleInput" formControlName="sku" pInputText type="text"  placeholder="sku"/></div>
+<div class="col-md-4"><input style="width: 100%;"  class="styleInput" formControlName="weight" pInputText type="number"  placeholder="Peso"/></div>
 </div>
 <br>
 <div class="row">
 
-<div class="col-md-6"><input style="width: 100%;" formControlName="fiscalNcm" pInputText type="number" placeholder="fiscalNcm" /></div>
-<div class="col-md-6"><input style="width: 100%;" formControlName="fiscalSource" pInputText type="number" placeholder="fiscalSource" /></div>
+<div class="col-md-6"><input style="width: 100%;" class="styleInput"  formControlName="fiscalNcm" pInputText type="number" placeholder="fiscalNcm" /></div>
+<div class="col-md-6"><input style="width: 100%;" class="styleInput"  formControlName="fiscalSource" pInputText type="number" placeholder="fiscalSource" /></div>
 
 </div>
 <br><br>
-<button pButton pRipple [style]="'width:100%;'" (click)="Post()" type="button" label="Inserir Produto" class="p-button-raised p-button-help p-button-text"></button>
+<button pButton pRipple [style]="'width:100%;'" style="background-color: rgb(245, 212, 212); color: #000;     font-family: 'EB Garamond', serif;"  (click)="Post()" type="button" label="Inserir Produto" class="p-button-raised p-button-warning p-button-text"></button>
 
 </form>
-</p-accordionTab>
-</p-accordion>
+</p-card>
+
 <br><br>
-<p-accordion>
-<p-accordionTab header="Ver produtos disponíveis">
-<form [formGroup]="formGet">
-  <div class="p-inputgroup">
-    <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
-<input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
-</div>
-</form>
-<br>
 
-<p-table  [styleClass]="{'background-color': '#000'}" dataKey="name" #dt1  [rows]="15" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-gridlines"
-[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-[globalFilterFields]="['sku','name','price']" editMode="row"
-[value]="dataSource" responsiveLayout="scroll">
-<ng-template pTemplate="header">
-    <tr >
-      <th></th>
-
-        <th>sku</th>
-        <th>id</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>cond</th>
-        <th ></th>
-
-    </tr>
-</ng-template>
-<ng-template pTemplate="body" let-editing="editing"  let-product let-index="rowIndex" let-expanded="expanded">
-  <tr [formGroup]="formPut" [pEditableRow]="product">
-      <td>
-        <button type="button" pInitEditableRow (click)="onRowEditInit(product)" pButton pRipple [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-    </td>
-
-    <td>
-    <p-cellEditor>
-      <ng-template pTemplate="input">
-          <input pInputText type="text" formControlName="sku" [(ngModel)]="product.sku">
-      </ng-template>
-      <ng-template pTemplate="output">
-        <td>{{product.sku}}</td>
-      </ng-template>
-    </p-cellEditor>
-</td>
-
-
-<td>
-  <p-cellEditor>
-    <ng-template pTemplate="input">
-        <input pInputText type="number" readonly formControlName="id" [(ngModel)]="product.id">
-    </ng-template>
-    <ng-template pTemplate="output">
-      <td>{{product.id}}</td>
-    </ng-template>
-  </p-cellEditor>
-</td>
-<td>
-  
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-              <input pInputText type="text" formControlName="name" [(ngModel)]="product.name">
-          </ng-template>
-          <ng-template pTemplate="output">
-        <td>{{product.name}}</td>
-      </ng-template>
-    </p-cellEditor>
-</td>
-
-<td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-              <input pInputText type="number" formControlName="price" [(ngModel)]="product.price">
-          </ng-template>
-          <ng-template pTemplate="output">
-        <td>{{ product.price |  currency: 'BRL' }}</td>
-      </ng-template>
-    </p-cellEditor>   
-</td>
-
-<td>     
-<p-cellEditor>
-          <ng-template pTemplate="input">
-              <input pInputText type="text"  formControlName="condition" [(ngModel)]="product.condition">
-          </ng-template>
-          <ng-template pTemplate="output">
-              {{product.condition}}
-          </ng-template>
-      </p-cellEditor>    
-    </td>  
-      
-      <td style="text-align:center">
-                <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(product)" class="p-button-rounded p-button-text p-button-danger"></button>
-      </td>
-    </tr>
-</ng-template>
-
-<ng-template pTemplate="rowexpansion" let-product let-rowIndex="rowIndex">
-  <tr>
-    <td colspan="7">
-        <div class="p-p-3">
-<p-table  editMode="row"  [frozenValue]="dataSource.slice(0,1)" dataKey="id">
-  <ng-template pTemplate="header"  let-rowIndex="rowIndex">
-
-                    <tr  [pEditableRow]="product">
-                      <th >description </th>
-                      <th >weight</th>
-                      <th >fiscalNcm </th>
-                      <th >fiscalSource</th>   
-                      <th >packageHeight</th>
-                      <th > packageLength</th>
-                      <th > packageWidth</th>
-                      <th >id</th>
-                      <th ></th>
-
-                  </tr>
-                  </ng-template>
-                  <ng-template let-editing="editing"  pTemplate="frozenbody" lenght="1"  let-rowIndex="rowIndex">                 
-                         <tr [formGroup]="formPut" [pEditableRow]="product"> 
-                        
-                        
-                          <td>
-                            <p-cellEditor>
-                              <ng-template pTemplate="input">
-                                  <input pInputText type="text" formControlName="description" [(ngModel)]="product.description">
-                              </ng-template>
-                              <ng-template pTemplate="output">
-                            {{product.description | slice: 0:150}}
-                          </ng-template>
-                        </p-cellEditor>  
-                          </td>
-                       
-                       
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number"  formControlName="weight" [(ngModel)]="product.weight">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.weight}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>
-                        
-                        
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number"  formControlName="fiscalNcm" [(ngModel)]="product.fiscalNcm">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.fiscalNcm}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>    
-                        
-                        
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number"  formControlName="fiscalSource" [(ngModel)]="product.fiscalSource">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.fiscalSource}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>
-                      
-                      
-                         <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number"  formControlName="packageHeight" [(ngModel)]="product.packageHeight">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.packageHeight}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>
-                       
-                       
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number"  formControlName="packageLength" [(ngModel)]="product.packageLength">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.packageLength}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>
-                       
-                       
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="number" formControlName="packageWidth" [(ngModel)]="product.packageWidth">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.packageWidth}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        </td>
-
-                       
-                       
-                        <td>
-                          <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input pInputText type="text" readonly formControlName="id" [(ngModel)]="product.id">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                          {{product.id}}
-                        </ng-template>
-                      </p-cellEditor>  
-                        
-                        </td>
-
-
-                        <td style="text-align:center">
-                          <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(product)" class="p-button-rounded p-button-text"></button>
-                          <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(product)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
-                          <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(product)" class="p-button-rounded p-button-text p-button-danger"></button>
-                      </td>
-                      </tr>
-
-
-                  </ng-template>
-                </p-table>
-            </div>
-        </td>
-    </tr>
-</ng-template>
-</p-table>
-</p-accordionTab>
-</p-accordion>
 </div>

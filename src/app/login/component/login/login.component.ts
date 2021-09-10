@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import Swal from 'sweetalert2';
+import { NgwWowService } from 'ngx-wow';
+
 import { LoginService } from '../..';
 import { Login } from '../../models';
 
@@ -16,16 +18,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
+    private wowService: NgwWowService,
     private loginService: LoginService,
     public app: AppComponent
     ) { 
-      this.app.valorLogin = false;
+      this.wowService.init();
     }
 
   ngOnInit(): void {
     this.gerarForm();
-    this.app.valorLogin = false;
-  }
+    this.wowService.init();
+
+    this.app.valorLogin = true; 
+    this.app.valorInserir = false
+    this.app.valorList = false;  }
 
   gerarForm() {
     this.form = this.fb.group({    
@@ -61,16 +67,6 @@ logar(){
   console.log('erro')
   }
   else{
-//TESTE PARA PASSAR O LOGIN CHUMBADO
-    // let a = this.form.get('login')?.value; 
-    // let b = this.form.get('password')?.value; 
-  
-    // if(a === 'joao' && b ==='123456'){
-    //   this.app.valorLogin = true;
-    //   this.router.navigate([ 'dashboard']);
-    // }else{
-    //   console.log('deu erro man');
-    // }
 
     const login: Login = this.form.value;
 console.log(login)

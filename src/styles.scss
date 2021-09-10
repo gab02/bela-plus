@@ -1,5 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 $primary: #d5bddcce;
 html, body { height: 100%; font-family: 'IBM Plex Sans KR', sans-serif; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $primary; font-size: 64.5%;   color: #0305089e;
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;font-size: 64.5%;   
+    color: #0305089e;
+    width: 100%;
+
+//    background-image: url(../src/assets/background.png);
+    height: 100%;
+  
+    overflow-x: hidden;
 }
+.test{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+span > .p-inputtext:enabled:focus{
+    border-color: #4D80CA !important;
+    box-shadow: 0 0 0 0.02rem green !important;
+}
+
+
+span > .p-inputtext:hover{
+    box-shadow: 0 0 0 0.02rem green !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
